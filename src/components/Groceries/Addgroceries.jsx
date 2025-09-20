@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-const AddProducts = () => {
-  const [product, setProduct] = useState({
+const AddGroceries = () => {
+  const [groceries, setgroceries] = useState({
     name: "",
     brand: "",
     price: "",
@@ -11,7 +11,7 @@ const AddProducts = () => {
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    setProduct((prev) => ({
+    setgroceries((prev) => ({
       ...prev,
       [name]: files ? files[0] : value,
     }));
@@ -19,23 +19,23 @@ const AddProducts = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Product Data:", product);
+    console.log("groceries Data:", groceries);
     // You can send this data to your API here
   };
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
-      <h1 className="text-2xl font-bold mb-6 text-center">Add Product</h1>
+      <h1 className="text-2xl font-bold mb-6 text-center">Add groceries</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block mb-1 font-medium">Product Name</label>
+          <label className="block mb-1 font-medium">groceries Name</label>
           <input
             type="text"
             name="name"
-            value={product.name}
+            value={groceries.name}
             onChange={handleChange}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter product name"
+            placeholder="Enter groceries name"
             required
           />
         </div>
@@ -45,7 +45,7 @@ const AddProducts = () => {
           <input
             type="text"
             name="brand"
-            value={product.brand}
+            value={groceries.brand}
             onChange={handleChange}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter brand name"
@@ -58,7 +58,7 @@ const AddProducts = () => {
           <input
             type="number"
             name="price"
-            value={product.price}
+            value={groceries.price}
             onChange={handleChange}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter price"
@@ -70,7 +70,7 @@ const AddProducts = () => {
           <label className="block mb-1 font-medium">Category</label>
           <select
             name="category"
-            value={product.category}
+            value={groceries.category}
             onChange={handleChange}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
@@ -83,14 +83,13 @@ const AddProducts = () => {
           </select>
         </div>
 
-
         <div>
-          <label className="block mb-1 font-medium ">Product Image</label>
+          <label className="block mb-1 font-medium">groceries Image</label>
           <input
             type="file"
             name="image"
             onChange={handleChange}
-            className="w-full rounded-md transition w-full px-3 py-2 border rounded-md"
+            className="w-full"
             accept="image/*"
           />
         </div>
@@ -99,11 +98,11 @@ const AddProducts = () => {
           type="submit"
           className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition"
         >
-          Add Product
+          Add groceries
         </button>
       </form>
     </div>
   );
 };
 
-export default AddProducts;
+export default AddGroceries;
